@@ -34,50 +34,30 @@ class ViewController: UIViewController {
         case 0:
             if cardArray[0] == UIImage.init(named:"king"){
                 leftButton.setImage(UIImage.init(named: "king"), for: .normal)
-                displayLabel.text = "You Win!"
-                counter += 1
-                count.text = "Win = \(counter)"
-
+                youWin()
             } else {
-            leftButton.setImage(UIImage.init(named: "three"), for: .normal)
-                displayLabel.text = "You Lose!"
-                counter1 += 1
-                count1.text = "Lose = \(counter1)"
+                leftButton.setImage(UIImage.init(named: "three"), for: .normal)
+                youLose()
             }
-            leftButton.isEnabled = false
-            middleButton.isEnabled = false
-            rightButton.isEnabled = false
+                disableButton()
         case 1:
             if cardArray[1] == UIImage.init(named:"king"){
-               middleButton.setImage(UIImage.init(named: "king"), for: .normal)
-                displayLabel.text = "You Win!"
-                counter += 1
-                count.text = "Win = \(counter)"
+                middleButton.setImage(UIImage.init(named: "king"), for: .normal)
+                youWin()
             } else {
-            middleButton.setImage(UIImage.init(named: "three"), for: .normal)
-                displayLabel.text = "You Lose!"
-                counter1 += 1
-                count1.text = "Lose = \(counter1)"
+                middleButton.setImage(UIImage.init(named: "three"), for: .normal)
+                youLose()
             }
-            leftButton.isEnabled = false
-            middleButton.isEnabled = false
-            rightButton.isEnabled = false
-
+                disableButton()
         case 2:
             if cardArray[2] == UIImage.init(named:"king"){
-            rightButton.setImage(UIImage.init(named: "king"), for: .normal)
-                displayLabel.text = "You Win!"
-                counter += 1
-                count.text = "Win = \(counter)"
+                rightButton.setImage(UIImage.init(named: "king"), for: .normal)
+                youWin()
             } else {
-            rightButton.setImage(UIImage.init(named: "three"), for: .normal)
-                displayLabel.text = "You Lose!"
-                counter1 += 1
-                count1.text = "Lose = \(counter1)"
+                rightButton.setImage(UIImage.init(named: "three"), for: .normal)
+               youLose()
             }
-            leftButton.isEnabled = false
-            middleButton.isEnabled = false
-            rightButton.isEnabled = false
+                disableButton()
         default:
             print("invalid tag")
         }
@@ -97,7 +77,21 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    func disableButton(){
+        leftButton.isEnabled = false
+        middleButton.isEnabled = false
+        rightButton.isEnabled = false
+    }
+    func youWin(){
+        displayLabel.text = "You Win!"
+        counter += 1
+        count.text = "Win = \(counter)"
+    }
+    func youLose(){
+        displayLabel.text = "You Lose!"
+        counter1 += 1
+        count1.text = "Lose = \(counter1)"
+    }
     @IBAction func newGame(_ sender: UIButton) {
      
         displayLabel.text = "Pick a Card!"
